@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden;">
+
+<!-- begin::Head -->
+
+<head>
+
+	<!--begin::Base Path (base relative path for assets of this page) -->
+	<base href="../">
+
+	<!--end::Base Path -->
+	<meta charset="utf-8" />
+	<title>E-Medical Record</title>
+	<meta name="description" content="Latest updates and statistic charts">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="pragma" content="no-cache" />
+
+	<!--<link href="/assets/css/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/assets/css/plugins.bundle.css" rel="stylesheet" type="text/css" /> -->
+	<!--begin::Fonts -->
+	<link href="./assets/ajax/webfont.js" rel="stylesheet" type="text/css" />
+	<!--script>
+		WebFont.load({
+			google: {
+				"families": ["Segoe UI:300,400,500,600,700", "Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+			},
+			active: function () {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script-->
+	<!--script src="./assets/ckeditor/ckeditor.js"></script-->
+
+	<!--end::Fonts -->
+	<!--begin:: Global Mandatory Vendors -->
+	<link href="./assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+
+	<!-- <link rel="stylesheet" href="./assets/multi-select/css/bootstrap-multiselect.css"> -->
+	<link href="./assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/vendors/general/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+	<!--end:: Global Optional Vendors -->
+
+	<!--begin::Global Theme Styles(used by all pages) -->
+	<link href="./assets/css/style.bundle.css?n=61" rel="stylesheet" type="text/css" />
+	<link href="./assets/css/custom.css?n=62" rel="stylesheet" type="text/css">
+	<!--end::Global Theme Styles -->
+	<!-- <link href="./assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet"
+		type="text/css" /> -->
+
+	<!--begin::Layout Skins(used by all pages) -->
+
+	<!--end::Layout Skins -->
+	<link rel="shortcut icon" href="./assets/media/logos/logo.png" />
+
+	<link href="./assets/dropzone/dropzone.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/magnific/magnific-popup.css?n=31" rel="stylesheet" type="text/css" />
+	<link href="./assets/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/sweetalert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+	<link href="./assets/select2/css/select2.min.css?n=1" rel="stylesheet" type="text/css" />
+	<link href="./assets/printarea/print.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- <link rel="stylesheet" href="./assets/css/custom-cetak.css"> -->
+	<link href="./assets/vendors/custom/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="./assets/magnify/css/jquery.magnify.css">
+	<link href="./assets/vendors/general/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+	<style>
+		.autolist {
+			position: absolute;
+		}
+
+		.selected {
+			background-color: blue;
+			color: white;
+		}
+
+		.blockUI.blockOverlay {
+			cursor: not-allowed !important;
+			opacity: 0.08;
+		}
+	</style>
+</head>
+
+<!-- end::Head -->
+
+<!-- begin::Body -->
+
+<body class="kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent 
+	kt-aside--enabled kt-aside--fixed kt-page--loading f-600" style="max-width: 100vw; overflow-x: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-y: hidden;" id="applicationBody">
+	<!-- begin:: Page -->
+	<div id="pasien"></div>
+	<!-- <div class="alert alert-info" id="alertSuccess"
+		style="position: absolute; z-index: 9999; margin-left: 35%; margin-top: 20%; vertical-align: middle;">
+		<span id="msgAlertSuccess"></span><span style="width: 20px;">&nbsp;</span><button type="button" class="close"
+			style="text-align: right; border-radius: 5px" data-dismiss="alert">&times;</button>
+
+		</div> -->
+	<!-- <div class="alert alert-success-custom" role="alert" id="alertSuccess"
+		style="position: absolute; z-index: 9999; right: 0.4%; margin-top: 0.4%;">
+		<div class="alert-icon"><i class="flaticon2-check-mark"></i></div>
+		<div class="alert-text" id="msgAlertSuccess"></div>
+		<div class="alert-close ml-3">
+			<button type="button" class="close" id="hideAlertSuccess">
+				<span aria-hidden="true"><i class="fa fa-times text-light"></i></span>
+			</button>
+		</div>
+	</div> -->
+
+	<!-- <div class="alert alert-danger-custom" role="alert" id="alertDanger"
+		style="position: absolute; z-index: 9999; right: 0.4%; margin-top: 0.4%;">
+		<div class="alert-icon"><i class="flaticon2-information"></i></div>
+		<div class="alert-text" id="msgAlertDanger"></div>
+		<div class="alert-close ml-3">
+			<button type="buttonr" class="close" id="hideAlertDanger">
+				<span aria-hidden="true"><i class="fa fa-times text-light"></i></span>
+			</button>
+		</div>
+	</div> -->
+	<!-- begin:: Header Mobile -->
+	<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed " style="z-index: 100;">
+		<div class="kt-header-mobile__logo">
+			<a href="./pages/">
+				<img class="logo" src="./assets/media/logos/logo1.png" />
+			</a>
+		</div>
+		<!--div id="pasien"></div-->
+		<!-- <div class="kt-header-mobile__toolbar">
+			<button class="kt-header-mobile__toolbar-toggler " id="kt_aside_mobile_toggler"><span></span></button>
+		</div> -->
+		<div class="kt-header-mobile__toolbar">
+			<div class="row" name="headerPinPasien">
+				<div class="kt-header__topbar-item kt-header__topbar-item--user">
+					<div class="kt-header__topbar-wrapper">
+						<div class="kt-header__topbar-user-pasien-info">
+							<div class="accordion m-1 form-inline accordion-toggle-arrow text-light" id="DetailPasienMobile" style="position:relative; margin-right:0px; z-index:500;  min-width:300px; max-width:500px">
+								<div class="card" style="min-width:300px; border:none; margin-right:2px; margin-top: 1px;">
+									<div class="card-header row" name="PasienHdr" style="background-color: rgb(108, 85, 138);">
+										<span data-toggle="tooltip" title="Clear" class="text-center">
+											<div class="kt-link pointer text-danger ml-2" name="clearPinnedPasienHdr" style="margin-top: 8px; display: inline-block;">
+												<i class="fa fa-times-circle clearPinPsnHdr"></i>
+											</div>
+										</span>
+										<div class="card-title text-light pointer" name="collapseCoverPasienHdr" data-toggle="collapse" data-target="#DetPsnMobile" aria-expanded="true" aria-controls="DetPsnMobile" style="justify-content: space-between;padding: 7px 30px 8px 0px;">
+											<label style="width: 200px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" name="nmPasienHdr" class="text-warning pointer ml-2 kt-font-boldest">-</label>
+											<strong>
+												<label name="noMrHdr" class="pointer">00-00-00-00</label>
+											</strong>
+										</div>
+									</div>
+									<div id="DetPsnMobile" style="position: fixed; margin-top: 40px; z-index: 9999; min-width: 324px; border: 1px solid rgb(119, 94, 151);" class="bg-light text-dark collapse" aria-labelledby="headingOne" data-parent="#DetailPasienMobile">
+										<div class="card-body">
+											<table style="width:100%">
+												<tbody>
+													<tr>
+														<td>No Reg</td>
+														<td>:</td>
+														<td><label name="noRGHdr">RG-000000</label></td>
+													</tr>
+													<tr>
+														<td>Tgl. Masuk</td>
+														<td>:</td>
+														<td><label class="mr-3" name="tglPeriksaHdr">dd MM yyyy00:00:00</label><label name="jamPeriksaHdr">02:44:47</label></td>
+													</tr>
+													<tr>
+														<td>Layanan</td>
+														<td>:</td>
+														<td><label name="layananCoverHdr">Layanan</label></td>
+													</tr>
+													<tr>
+														<td>DPJP</td>
+														<td>:</td>
+														<td><label name="dpjpHdr">Dr. ,</label></td>
+													</tr>
+													<tr>
+														<td colspan="3">&nbsp;</td>
+													</tr>
+													<tr>
+														<td>Sex</td>
+														<td>:</td>
+														<td>
+															<img name="jkHdr">
+														</td>
+													</tr>
+													<tr>
+														<td>Umur</td>
+														<td>:</td>
+														<td><label name="usiaHdr">00 Tahun</label></td>
+													</tr>
+													<tr>
+														<td colspan="3">&nbsp;</td>
+													</tr>
+													<tr>
+														<td style="color:red">#allergi</td>
+														<td colspan="2"><label name="alergiHdr" style="color: red;"></label>
+														</td>
+													</tr>
+													<tr>
+														<td>#vital-sign</td>
+														<td colspan="2"><label name="vitalSignHdr"></label></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<button type="button" class="btn btn-secondary mr-0 col p-0" name="closeDetPsnHdr" aria-label="Close" title="collapse">
+											<i class="fa fa-chevron-circle-up fa-lg text-brand mb-1 fa-sm"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="kt-header__topbar-item kt-header__topbar-item--user mr-1 mt-1">
+					<button class="btn btn-brand border-radius3" style="background: #6c558a;" name="divSelesaiPasien">
+						SELESAI
+					</button>
+				</div>
+
+				<div class="kt-header__topbar-item kt-header__topbar-item--user mt-1">
+					<button class="btn btn-brand border-radius3" style="background: #6c558a;" name="gantiPasien">
+						PILIH PASIEN
+						<i class="fa fa-user-shield ml-2 fa-sm mb-1"></i>
+					</button>
+				</div>
+			</div>
+			<button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--left" id="kt_aside_mobile_toggler"><span></span></button>
+			<button class="kt-header-mobile__toolbar-toggler kt-header-mobile__toolbar-toggler--right" id="kt_header_mobile_toggler"><span></span></button>
+			<button class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+		</div>
+
+	</div>
+
+	<!-- end:: Header Mobile -->
+	<div class="kt-grid kt-grid--hor kt-grid--root">
+		<div class="kt-grid__item">
+			<!-- kt-grid__item--fluid kt-grid kt-grid--ver kt-page -->
+			<!-- begin:: Aside -->
+			<button class="kt-aside-close " id="kt_aside_close_btn"><i class="la la-close"></i></button>
+			<div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
+
+				<!-- begin:: Aside -->
+				<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
+					<div class="kt-aside__brand-logo">
+						<a href="./pages/">
+							<img class="logo" src="./assets/media/logos/logo1.png">
+						</a>
+					</div>
+					<div class="kt-aside__brand-tools">
+						<button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler"><span></span></button>
+					</div>
+				</div>
+
+				<!-- end:: Aside -->
+
+				<!-- begin:: Aside Menu -->
+				<div class="kt-aside-menu-wrapper kt-grid__item kt-grid__item--fluid" id="kt_aside_menu_wrapper" style="position: relative;">
+					<div id="kt_aside_menu" class="kt-aside-menu example-1 square scrollbar-dusty-grass square thin" style="height: 100%;" data-ktmenu-vertical="1" data-ktmenu-scroll="1">
+						<ul class="kt-menu__nav">
+							<li class="kt-menu__item " id="linkAntrian" aria-haspopup="true">
+								<a href="./pages/#0" class="kt-menu__link mn" id="mnuAntrian">
+									<img class="icon" src="./assets/media/icon/antri1.png">
+									<span class="kt-menu__link-text ml-3 header_title">Antrian</span></a>
+							</li>
+							<li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#1" class="kt-menu__link mn" id="mnuAssesment">
+									<img class="icon" src="./assets/media/icon/perawat.png">
+									<span class="kt-menu__link-text ml-3 header_title">Assesment Awal</span></a>
+							</li>
+							<!-- Arsip pindah ke bawah -->
+							<li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#3" class="kt-menu__link mn" id="mnuMedicalChart">
+									<img class="icon" src="./assets/media/icon/stetoskop.png">
+									<span class="kt-menu__link-text ml-3 header_title">Medical Chart</span></a>
+							</li>
+							<!-- <li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#5" class="kt-menu__link mn" id="mnuMonitoring">
+									<img class="icon" src="./assets/media/icon/system_task_40px.png">
+									<span class="kt-menu__link-text ml-3 header_title">Monitoring</span></a>
+							</li> -->
+							<li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#2" class="kt-menu__link mn" id="arsp">
+									<img class="icon" src="./assets/media/icon/archive_w.png">
+									<span class="kt-menu__link-text ml-3 header_title">Arsip</span></a>
+							</li>
+							<li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#16" class="kt-menu__link mn" id="mnuSurat">
+									<img class="icon" src="./assets/media/icon/sign_mail_40px.png">
+									<span class="kt-menu__link-text ml-3 header_title">Surat</span></a>
+							</li>
+							<li class="kt-menu__item " aria-haspopup="true">
+								<a href="./pages/#4" class="kt-menu__link mn" id="mnuResume">
+									<img class="icon" src="./assets/media/icon/res.png">
+									<span class="kt-menu__link-text ml-3 header_title">Resume Medis</span></a>
+							</li>
+							<li class="kt-menu__item  kt-menu__item--submenu" aria-haspopup="true" id="collapseMaster" data-ktmenu-submenu-toggle="hover">
+								<a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+									<img class="icon" src="./assets/media/icon/master.png">
+									<span class="kt-menu__link-text ml-3">Data Master</span>
+									<i class="kt-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="kt-menu__submenu sub-menu-nav"><span class="kt-menu__arrow"></span>
+									<ul class="kt-menu__subnav">
+										<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Data
+													Master</span></span></li>
+										<li class="kt-menu__item " aria-haspopup="true">
+											<a href="./pages/#6" class="kt-menu__link mn" menuflag="subMenu" id="mnuSuggestion">
+												<img class="icon" src="./assets/media/icon/suggest.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Suggestion</span></a>
+										</li>
+										<li class="kt-menu__item" aria-haspopup="true">
+											<a href="./pages/#7" class="kt-menu__link mn" menuflag="subMenu" id="mnuTemplateChart">
+												<img class="icon" src="./assets/media/icon/template_w.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Template
+													Chart</span></a>
+										</li>
+										<li class="kt-menu__item" aria-haspopup="true">
+											<a href="./pages/#8" class="kt-menu__link mn" menuflag="subMenu" id="mnuTemplateOrder">
+												<img class="icon" src="./assets/media/icon/temp_order_w.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Template
+													Order</span></a>
+										</li>
+										<li class="kt-menu__item" aria-haspopup="true" id="linkSetupGraphType" style="display: none;">
+											<a href="./pages/#9" class="kt-menu__link mn" menuflag="subMenu" id="mnuGraphType">
+												<img class="icon" src="./assets/media/icon/health_graph_40px.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Graph
+													Type</span></a>
+										</li>
+										<!-- <li class="kt-menu__item" aria-haspopup="true">
+											<a href="./pages/#13" class="kt-menu__link mn" menuflag="subMenu"
+												id="mnuAnatomy">
+												<img class="icon" src="./assets/media/icon/creative_commons_by_40px.png"
+													style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Body
+													Anatomy</span></a>
+										</li> -->
+										<li class="kt-menu__item" aria-haspopup="true" id="linkSetupAssesTask" style="display: none;">
+											<a href="./pages/#15" class="kt-menu__link mn" menuflag="subMenu" id="mnuTaskAssesSetup">
+												<img class="icon" src="./assets/media/icon/add_graph_report_40px.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Assesment
+													Task</span></a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<!--li class="kt-menu__item " aria-haspopup="true"><a href="./pages/#9"
+									class="kt-menu__link mn">
+									<img class="icon" src="./assets/media/icon/arch.png">
+									<span class="kt-menu__link-text ml-3 header_title">Arsip</span></a>
+							</li>
+							<li class="kt-menu__item " aria-haspopup="true"><a href="./pages/#10"
+									class="kt-menu__link mn">
+									<img class="icon" src="./assets/media/icon/sign.png">
+									<span class="kt-menu__link-text ml-3 header_title">E-Signature</span></a>
+								</li-->
+
+							<li class="kt-menu__item kt-menu__item--submenu" aria-haspopup="true" id="collapseSetting" data-ktmenu-submenu-toggle="hover">
+								<a href="javascript:;" class="kt-menu__link kt-menu__toggle">
+									<img class="icon" src="./assets/media/icon/gear.png">
+									<span class="kt-menu__link-text ml-3 header_title">Setting</span>
+									<i class="kt-menu__ver-arrow la la-angle-right"></i>
+								</a>
+								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+									<ul class="kt-menu__subnav">
+										<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Setting</span></span></li>
+										<li class="kt-menu__item " id="hak_akses" style="display: none;" aria-haspopup="true">
+											<a href="./pages/#10" class="kt-menu__link mn" menuflag="subMenu" id="mnuHakAkses">
+												<img class="icon" src="./assets/media/icon/access_w.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Hak
+													Akses</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+									<ul class="kt-menu__subnav">
+										<li class="kt-menu__item  kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Setting</span></span></li>
+										<li class="kt-menu__item " aria-haspopup="true">
+											<a href="./pages/#11" class="kt-menu__link mn" menuflag="subMenu" id="mnuAktivasiBerkas">
+												<img class="icon" src="./assets/media/icon/archive_active_w.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">Aktivasi
+													Berkas</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
+									<ul class="kt-menu__subnav">
+										<li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Setting</span></span></li>
+										<li class="kt-menu__item" aria-haspopup="true">
+											<a href="./pages/#14" class="kt-menu__link mn" menuflag="subMenu" id="mnuUserSetting">
+												<img class="icon" src="./assets/media/icon/ignition_switch_warning_64px.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">User
+													Setting</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="kt-menu__submenu sub-menu-nav"><span class="kt-menu__arrow"></span>
+									<ul class="kt-menu__subnav">
+										<li class="kt-menu__item kt-menu__item--parent" aria-haspopup="true"><span class="kt-menu__link"><span class="kt-menu__link-text">Setting</span></span></li>
+										<li class="kt-menu__item" id="about" aria-haspopup="true">
+											<a href="./pages/#12" class="kt-menu__link mn" menuflag="subMenu" id="mnuAbout">
+												<img class="icon" src="./assets/media/icon/about_w.png" style="margin-top: 10px;">
+												<span class="kt-menu__link-text ml-3" style="color: white;">About</span></a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<div style="position: sticky; bottom: 20px;">
+							<div style="right: 0px;" class="kt-portlet__head kt-portlet__head--noborder  kt-ribbon kt-ribbon--brand kt-ribbon--shadow kt-ribbon--left kt-ribbon--round">
+								<div class="kt-ribbon__target db-conn col" style="top: 12px; right: -2px;position: relative;box-shadow: 0px 0px 0px;background-color: #775e97;border-top: 1px solid #9976c7;">
+									<a class="first-link">
+										<i class="fa fa-server"></i>
+										<span id="dbConn" style="font-size: 0.8rem;"></span>
+									</a>
+								</div>
+							</div>
+
+							<div style="left:0px; right:0px; text-align:center;" id="user-dd" class="kt-portlet__head kt-portlet__head--noborder  kt-ribbon kt-ribbon--brand kt-ribbon--shadow kt-ribbon--left kt-ribbon--round">
+								<div data-toggle="dropdown" style="width:100%;background-color: #775e97;box-shadow: 0px 0px 0px; border-top: 1px solid #9976c7;" data-offset="10px,0px" class="pointer kt-ribbon__target">
+									<div class="kt-header__topbar-user" style="margin:0 auto;">
+										<span class=" kt-header__topbar-username kt-hidden-mobile" style="font-size: 0.8rem;" id="namaUser" style="color:white"></span>
+										<i class="fa sign-out-alt"></i>
+										<img alt="Pic" style="width:25px" class="kt-radius-100" src="./assets/media/icon/user1.png" />
+										<br>
+										<label class="ml-2" id="serverTime"></label>
+										<label class="ml-2" id="serverDate" style="display: none;"></label>
+										<span class="kt-header__topbar-icon" id="pulseNotif" style="top: -7px;right: 5px;font-size: 11px;">
+											<span id="notifCounter"></span>
+											<span class="kt-pulse__ring" id="pulseRing" style="top: -11px;right: -14px;"></span>
+										</span>
+										<!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+										<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold kt-hidden">S</span>
+									</div>
+								</div>
+								<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-sm" style="z-index:9990;" aria-labelledby="user-dd">
+									<div style="height: 60px;" class="kt-user-card kt-user-card--skin-dark bg-success">
+										<div class="kt-user-card__avatar">
+											<img alt="Pic" class="kt-radius-100" src="./assets/media/icon/user1.png" style="width: 30px;height: 30px;">
+										</div>
+										<div class="kt-user-card__name">
+											<h5 id="namaUserNotif"></h5>
+											<h6 id="namaPegNotif"></h6>
+										</div>
+										<div class="kt-user-card__badge text-center" style="display: none;">
+											<h6 class="kt-font-light" id="notifCounterInfo"></h6>
+										</div>
+									</div>
+									<!--begin: Navigation -->
+									<div class="kt-notification">
+										<div id="notifContent">
+
+										</div>
+										<div class="kt-notification__custom">
+											<a href="" id="logout" class="btn btn-label btn-label-brand btn-sm btn-bold" style="padding: 8px;">Sign Out</a>
+											<!--button class="btn btn-link  btn-label btn-sm btn-bold">My Profile</button-->
+
+										</div>
+									</div>
+									<!--end: Navigation -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- end:: Aside Menu -->
+
+
+			<!-- end:: Aside -->
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
+				<!-- begin:: Header -->
+				<div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
+
+					<!-- begin:: Header Menu -->
+					<button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
+					<div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper" style="opacity: 1;">
+						<div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default mt-2">
+							<div class="col-md-4 p-0 pl-2" id="divCari">
+								<input type="search" id="cari" class="form-control" placeholder="Search...">
+							</div>
+							<div class="col p-0 ml-1" id="divInstalasiDkHeader">
+								<select class="custom-select form-control" id="InstalasiDkHeader">
+									<option value="1">DARURAT</option>
+									<option value="2">RAWAT JALAN</option>
+									<option value="3">RAWAT INAP</option>
+								</select>
+							</div>
+							<div class="col-md-5 p-0 ml-1" id="divLayananHeader">
+								<select class="custom-select js-example-data-ajax form-control" id="layananHeader">
+									<option value="" selected="selected" id="lastLayananHdr"></option>
+								</select>
+
+							</div>
+							<span data-toggle="tooltip" title="Universal LookUp" class="col">
+								<button type="button" data-target="#modalLookUp" class="btn btn-icon-only-dark btn-sm btn-icon btn-circle mt-1" data-toggle="modal"><i class="fa fa-question-circle fa-lg"></i></button>
+							</span>
+						</div>
+					</div>
+
+					<!-- end:: Header Menu -->
+
+					<!-- begin:: Header Topbar -->
+					<div class="kt-header__topbar pr-2 headerTopBar" name="headerPinPasien">
+						<div class="kt-header__topbar-item kt-header__topbar-item--user">
+							<div class="kt-header__topbar-wrapper">
+								<div class="kt-header__topbar-user-pasien-info">
+									<div class="accordion m-1 form-inline accordion-toggle-arrow text-light" id="DetailPasien" style="position:relative; margin-right:0px; z-index:500;  min-width:300px; max-width:500px">
+										<div class="card" style="min-width:300px; border:none; margin-right:2px; margin-top: 1px;">
+											<div class="card-header row" name="PasienHdr" style="background-color:#6c558a">
+												<span data-toggle="tooltip" title="Clear" class="text-center">
+													<div class="kt-link pointer text-danger ml-2" name="clearPinnedPasienHdr" style="margin-top: 7px; display: none;">
+														<i class="fa fa-times-circle clearPinPsnHdr"></i>
+													</div>
+												</span>
+												<div class="card-title text-light collapsed pointer" id="collapseCoverPasien" data-toggle="collapse" data-target="#DetPsn" aria-expanded="false" aria-controls="DetPsn" style="justify-content: space-between; padding: 7px 30px 8px 0px">
+													<label style="width: 15vw;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" name="nmPasienHdr" class="text-warning pointer ml-2 kt-font-boldest">
+														NAMA PASIEN
+													</label>
+													<span id="1MonthUp" class="badge badge-warning" style="border-radius: 5px;padding: 0 5px;margin-right: 10px; display: none;">&gt; 1 bulan</span>
+													<strong>
+														<label name="noMrHdr" class="pointer">00-00-00-00</label>
+													</strong>
+												</div>
+											</div>
+											<div id="DetPsn" style="position: fixed; margin-top: 40px; z-index: 9999; min-width: 324px; border: 1px solid rgb(119, 94, 151);" class="bg-light text-dark collapse" aria-labelledby="headingOne" data-parent="#DetailPasien">
+												<div class="card-body">
+													<table style="width:100%">
+														<tbody>
+															<tr>
+																<td>No Reg</td>
+																<td>:</td>
+																<td><label name="noRGHdr">RG-000000</label></td>
+															</tr>
+															<tr>
+																<td>Tgl. Masuk</td>
+																<td>:</td>
+																<td><label class="mr-3" name="tglPeriksaHdr">26 Febuari
+																		2020</label><label name="jamPeriksaHdr">02:44:47</label></td>
+															</tr>
+															<tr>
+																<td>Layanan</td>
+																<td>:</td>
+																<td><label name="layananCoverHdr">Layanan</label></td>
+															</tr>
+															<tr>
+																<td>DPJP</td>
+																<td>:</td>
+																<td><label name="dpjpHdr">Dr. ,</label></td>
+															</tr>
+															<tr>
+																<td colspan="3">&nbsp;</td>
+															</tr>
+															<tr>
+																<td>Sex</td>
+																<td>:</td>
+																<td>
+																	<img name="jkHdr">
+																</td>
+															</tr>
+															<tr>
+																<td>Umur</td>
+																<td>:</td>
+																<td><label name="usiaHdr">00 Tahun</label></td>
+															</tr>
+															<tr>
+																<td colspan="3">&nbsp;</td>
+															</tr>
+															<tr style="display: none;">
+																<td style="color:red">#allergi</td>
+																<td colspan="2"><label name="alergiHdr" style="color: red;"></label>
+																</td>
+															</tr>
+															<tr style="display: none;">
+																<td>#vital-sign</td>
+																<td colspan="2"><label name="vitalSignHdr"></label></td>
+															</tr>
+														</tbody>
+													</table>
+													<div class="row" id="divQR" style="display: none;">
+														<div class="col-12 text-center">
+															<div id="qrcode" style="padding-left: 20%;" class="mt-2"></div>
+														</div>
+													</div>
+												</div>
+												<div class="progress" style="height: 2px;">
+													<div class="progress-bar kt-bg-info" id="progressLoadImageQR" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+												</div>
+												<button type="button" class="btn btn-secondary mr-0 col p-0" name="closeDetPsnHdr" aria-label="Close" title="collapse">
+													<i class="fa fa-chevron-circle-up fa-lg text-brand mb-1 fa-sm"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="kt-header__topbar-item kt-header__topbar-item--user" name="divSelesaiPasien">
+							<div class="kt-header__topbar-wrapper" id="selesaiPasien">
+								<div class="kt-header__topbar-user pr-1">
+									<span class="kt-header__topbar-username kt-hidden-mobile">SELESAI</span>
+								</div>
+							</div>
+						</div>
+						<div class="kt-header__topbar-item kt-header__topbar-item--user">
+							<div class="kt-header__topbar-wrapper" name="gantiPasien">
+								<div class="kt-header__topbar-user">
+
+									<span class="kt-header__topbar-username kt-hidden-mobile">PILIH PASIEN</span>
+									<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold"><i class="fa fa-user-shield"></i></span>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div id="kt-content" class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-color: white;">
+
+				</div>
+				<div class="modal fade" id="modalHistory">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div style="right: 0px; z-index: 100; position: absolute;">
+								<input type="image" class="i-btn3" src="./assets/media/icon/delete_w.png" data-dismiss="modal">
+							</div>
+							<div class="modal-header bg-header-toggle">
+								<h4 class="modal-title" id="modalTitleHistory" style="color: white;"></h4>
+								<!--button type="button" class="close" data-dismiss="modal"></button-->
+							</div>
+							<div class="modal-body" id="modalContentHistory">
+
+							</div>
+							<div class="modal-footer">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalRelogin" data-backdrop="static" data-keyboard="false" style="z-index: 3100">
+		<div class="modal-dialog modal-sm shadow" role="document">
+			<div class="modal-content" style="border-radius: 8px;">
+				<div class="modal-body" style="padding-bottom: 0px">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalLookUp">
+		<div class="modal-dialog modal-lg shadow" role="document" id="modalDialog">
+			<div class="modal-content" style="border-radius: 8px;">
+				<div class="modal-header">
+					<h4 class="modal-title">
+						Universal LookUp
+					</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body" style="">
+					<div class="row">
+						<div class="card bg-light border-radius3 col-12 p-2">
+							<div class="row">
+								<div class="col-md-12 kt-input-icon kt-input-icon--left">
+									<span class="kt-input-icon__icon kt-input-icon__icon--left" data-toggle="popover" id="infoLookUp" title="" data-content="" data-placement="bottom">
+										<span><i class="la la-info"></i></span>
+									</span>
+									<input type="text" id="searchLookUp" class="form-control" placeholder="type a keyword...">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-2">
+						<div class="card bg-light border-radius3 col-12 p-2">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsives tableFixHeadSpan scrollbar-dusty thin" id="divResultLookUp">
+										<table class="table table-sm table-bordered table-striped" id="tblLookUpResult">
+											<thead>
+
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end:: Page -->
+	<script type="text/javascript" src="./config/config.js?n=55"></script>
+	<script src="./assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" type="text/javascript">
+	</script>
+	<script src="./assets/select2/js/select2.min.js" type="text/javascript"></script>
+	<script src="./assets/printarea/print.min.js" type="text/javascript"></script>
+	<script src="./assets/js/printThis/printThis.js" type="text/javascript"></script>
+	<script src="./assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js" type="text/javascript"></script>
+
+	<script src="./assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script>
+	<!-- begin::Global Config(global config for global JS sciprts) -->
+	<script type="text/javascript" src="./assets/js/etc/version.js?n="></script>
+	<script>
+		var serverOffset;
+		var serverTimeInterval;
+		$('a').click(function() {
+			$('a').removeClass("act-side");
+			$(this).addClass("act-side");
+		});
+
+		$.get(config.base_api + 'Parameter/GetDBConnection', function(res) {
+			$("#dbConn").html(res.DataSource + ' - ' + res.Catalog);
+			clearInterval(serverTimeInterval);
+
+			const serverTgl = res.Tanggal;
+			const serverJam = res.Jam;
+			const serverDate = `${serverTgl}T${serverJam}`;
+			serverOffset = moment(serverDate).diff(new Date());
+			$('#serverDate').html(serverTgl);
+
+			serverTimeInterval = setInterval(function() {
+				const serverDateTime = moment().add(serverOffset, 'milliseconds');
+				const time = serverDateTime.format("HH:mm:ss")
+				$('#serverTime').html(time);
+			}, 1000);
+		});
+	</script>
+	<script>
+		//Global Variabel
+
+		var AppVersion = "2.2.2.013";
+		var AppVersionDate = "18-04-2022 12:55";
+
+		var layananCurrent = '';
+		var antrianCurrent = '';
+		var pasienIDCurrent = '';
+		var pasienIDArsip = ''; // menampung Pasien ID hasil Search (awalnya untuk header cetak dari Arsip)
+		var regIDCurrent = '';
+		var layananUrl = 'Antrian/ListAntrianByTgl?';
+		var user = []
+		var lastInstalasiDKHeader = '';
+		var lastLayananHeader = {};
+		var pasienIDTrgTimeline = '';
+
+		//Shortcut assesment history dari antrian
+		var isLoadHisAssesmentFromAntrian = false;
+		var directAssesmentID = '';
+		var directAntrianID = '';
+		var directRegID = ''
+		//---------------------------------------
+		var isPasienAktivasi = false;
+
+		var isWarning = true;
+		var lockscreenTime = config.lockscreen_time == undefined ? 0 : Number(config.lockscreen_time);
+		var kodeUnikQR = '';
+
+		let page = '';
+
+		var KTAppOptions = {
+			"colors": {
+				"state": {
+					"brand": "#2c77f4",
+					"light": "#ffffff",
+					"dark": "#282a3c",
+					"primary": "#5867dd",
+					"success": "#34bfa3",
+					"info": "#36a3f7",
+					"warning": "#ffb822",
+					"danger": "#fd3995"
+				},
+				"base": {
+					"label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+					"shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+				}
+			}
+		};
+
+		onLoad();
+
+		function getExpCookie(cName) {
+			const name = cName + "=";
+			const cDecoded = decodeURIComponent(document.cookie);
+			const cArr = cDecoded.split('; ');
+			let res = null;
+			cArr.forEach(val => {
+				if (val.indexOf(name) === 0) res = val.substring(name.length);
+			})
+			return res;
+		}
+
+
+		async function onLoad() {
+			user = window.localStorage.getItem('user');
+			user = JSON.parse(user);
+			if (user === null || getExpCookie('user') == undefined) {
+				window.location.href = './';
+			} else {
+
+				$("#namaUser").text('Hi, ' + user.UserrName);
+				$("#namaUserNotif").text(user.UserrName);
+				$("#namaPegNotif").text(user.PegName);
+			}
+
+			getListNotification();
+			hideUserMenu();
+
+
+			//Auto refresh Notification 2 minutes
+			// setInterval(function () {
+			// 	getListNotification();
+			// }, 120000);			
+
+			await loadData(window.location.hash);
+
+			await $("#pasien").load(config.base_url + 'pages/pasieninfo.html?n=' + AppVersion);
+
+			lastInstalasiDKHeader = localStorage.getItem('LastInstalasiDKHeader');
+			lastLayananHeader = JSON.parse(localStorage.getItem('LastLayananHeader'));
+
+			if (lastInstalasiDKHeader != null) {
+				$('#InstalasiDkHeader').val(lastInstalasiDKHeader);
+			} else {
+				//Jika kosong auto Rawat Jalan
+				$('#InstalasiDkHeader').val('2');
+				lastInstalasiDKHeader = '2'
+			}
+
+			if (lastLayananHeader != null) {
+				layananCurrent = lastLayananHeader.Kode;
+				$("#lastLayananHdr").val(lastLayananHeader.Kode);
+				$("#lastLayananHdr").html(lastLayananHeader.Nama);
+			}
+
+			$('#InstalasiDkHeader').select2({
+				width: '120px'
+			}).on("select2:open", () => {
+				if (isWarning) warningSaveInputGantiPasien(openInstalasiDkHeader);
+			});
+
+
+			switch (lastInstalasiDKHeader) {
+				case "1": //Darurat & Penunjang					
+					layananUrl = "Antrian/ListAntrianIGDByTgl?";
+					setLayananHeader();
+					break;
+				case "2": //Rawat Jalan					
+					layananUrl = "Antrian/ListAntrianByTgl?";
+					setLayananHeader();
+					break;
+				case "3": //Rawat Inap
+					layananUrl = "Layanan/ListRawatInap";
+					setLayananHeader(true);
+					$('[name="divSelesaiPasien"]').css('display', 'none');
+					break;
+			}
+		}
+
+		$('#InstalasiDkHeader').change(function() {
+			const _id = $(this).val();
+			$("#daftarHadir, #priksa,#selTrans").html("");
+			$("#layananHeader").val(null);
+			switch (_id) {
+				case "1": //Darurat & Penunjang					
+					layananUrl = "Antrian/ListAntrianIGDByTgl?";
+					setLayananHeader();
+					$('#listRajal').css("visibility", "visible");
+					$('#listRanap').css("visibility", "hidden");
+					$('[name="divSelesaiPasien"]').css('display', '');
+					break;
+				case "2": //Rawat Jalan					
+					layananUrl = "Antrian/ListAntrianByTgl?";
+					setLayananHeader();
+					$('#listRajal').css("visibility", "visible");
+					$('#listRanap').css("visibility", "hidden");
+					$('[name="divSelesaiPasien"]').css('display', '');
+					break;
+				case "3": //Rawat Inap
+					layananUrl = "Layanan/ListRawatInap";
+					setLayananHeader(true);
+					$('#listRajal').css("visibility", "hidden");
+					$('#listRanap').css("visibility", "visible");
+					$('[name="divSelesaiPasien"]').css('display', 'none');
+					break;
+			}
+			$("#assesment-content,#assesment-content-view").html('')
+			$('#namaLayanan').html('Nama Layanan');
+			$('#contentInfoLayanan').remove();
+			$('#collapseAll').remove();
+			$('#listKamar').html('');
+			localStorage.setItem('LastInstalasiDKHeader', $(this).val());
+			localStorage.setItem('LastLayananHeader', JSON.stringify({
+				Kode: '',
+				Nama: ''
+			}));
+
+			resetCover();
+			resetContentInput();
+		});
+
+		function setLayananHeader(isRanap = false) {
+			$("#layananHeader").select2({
+					width: '100%',
+					ajax: {
+						url: config.base_api + layananUrl,
+						dataType: 'json',
+						type: "GET",
+						data: function() {
+							if (isRanap) {
+								return "";
+							} else {
+								return {
+									tglYMD: dateNowYMD()
+								};
+							}
+						},
+						processResults: function(data, params) {
+							$("#layananHeader").select2('data', null);
+							//DISTINCT LAYANAN-----------------
+							const result = [];
+							const map = new Map();
+							for (const item of data) {
+								if (!map.has(item.LayananID)) {
+									map.set(item.LayananID, true); // set any value to Map
+									//Tambahan Filter layanan sesuai HAK AKSES
+									const isGrantLayanan = cekHakAksesLayanan(user.UserrID, item.LayananID);
+									if (isGrantLayanan) {
+										result.push({
+											LayananID: item.LayananID,
+											LayananName: item.LayananName
+										});
+									}
+								}
+							}
+							//-----------------------------------
+
+							const resultMapped = $.map(result, function(item) {
+								return {
+									text: item.LayananName,
+									id: item.LayananID
+								}
+							});
+
+							let filteredMappedLyn = resultMapped;
+
+							if (params.term != undefined) {
+								filteredMappedLyn = resultMapped.filter(x => x.text.toLowerCase().includes(params.term) == true)
+							}
+
+							return {
+								results: filteredMappedLyn
+							};
+						}
+					}
+				})
+				.on("select2:open", () => {
+					if (isWarning) warningSaveInputGantiPasien(openLayananHeader);
+					$('[name=gantiPasien]').show('slow');
+
+					const searchSelect = $(".select2-search__field[aria-controls='select2-layananHeader-results']")
+					$(searchSelect)[0].focus();
+				});
+		}
+
+		function openLayananHeader() {
+			isWarning = false;
+			$('#layananHeader').select2('open');
+			isWarning = true;
+		}
+
+		function openInstalasiDkHeader() {
+			isWarning = false;
+			$('#InstalasiDkHeader').select2('open');
+			isWarning = true;
+		}
+
+		$("#layananHeader").change(function(e) {
+			resetCover();
+			let tgl = dateNowYMD();
+			let layanan = $("#layananHeader").val();
+			layananCurrent = layanan;
+			localStorage.setItem('layananAntrian', layanan);
+			localStorage.setItem('dokterAntrian', 'null');
+
+			resetContentInput(layanan, tgl);
+
+			$('#listPasienCover').html('');
+			$("#check-listall").prop('checked', false);
+			$("#assesment-content,#assesment-content-view").html('');
+			if ($('#InstalasiDkHeader').val() == "3") {
+				setListOptionModalPasienRanap(layanan); //ada di pasieninfo.html , set option Dokter yg digunakan untuk ganti Pasien 			
+			} else {
+				setListOptionModalPasien(layanan, tgl);
+			}
+
+			localStorage.setItem('LastLayananHeader', JSON.stringify({
+				Kode: $(this).val(),
+				Nama: $(this).find(':selected').text().trim()
+			}));
+			e.preventDefault();
+		})
+
+		function resetContentInput(_layanan = '', _tgl = '') {
+			switch (page) {
+				case "antrian":
+					if (_layanan != '' && _tgl != '') {
+						if ($('#InstalasiDkHeader').val() == "3") {
+							getListRanap(_layanan);
+						} else {
+							getAntrianByLayanan(_layanan, _tgl);
+							getListDokter();
+						}
+					}
+
+					$("#dokter").val("");
+					const tabPos = $('a.nav-link.active').attr("href");
+					if (tabPos == "#kt_tabs_list_pasien") {
+						setListPasienInfo();
+					}
+					break;
+				case "medicalChart":
+					$("#chart").html('');
+					resetInput();
+					resetButtonOrder();
+					blockUIInput();
+					break;
+				case "assesment":
+					resetActiveTemplate();
+					resetTaskActivity();
+					$('#assesment-content, #assesment-content-view').html('');
+					break;
+				case "arsip":
+					$("#listArsip").html('');
+					$('#listsearchRegArc').html('');
+					resetPanelCoverArc();
+					break;
+				case "resume":
+					$("#listHistory").html('');
+					$('#listArsip').html('');
+					vResume.setNewResume()
+					break;
+			}
+		}
+
+		function loadData(url) {
+
+			index = url.replace('#', '');
+			link = ['antrian.html', 'assesmentTask.html', 'arsip.html', 'medicalchart.html', 'resume.html', 'monitoring.html',
+				'sugestion.html', 'template.html', 'templateOrder.html', 'graphtype.html',
+				'hakakses.html', 'aktivasiberkas.html', 'about.html', 'anatomy.html', 'userSetting.html',
+				'setuptaskassesment.html', 'surat.html'
+				//tambah menu wajib tambah object di belakang agar tidak merubah target number menu yang lain 
+			];
+			title = ['Antrian', 'Assesment', 'Arsip', 'Medical Chart', 'Resume', 'Monitoring',
+				'Suggest', 'Management Template', 'Management Template Order', 'Graph Type',
+				'Hak Akses', 'Aktivasi Berkas', 'About', 'Body Anatomy', 'User Setting', 'Setup Task Assesment',
+				'Surat'
+			];
+			icon = ['fa fa-users'];
+
+
+			//$("#pasien2").load(config.base_url + 'pages/pasieninfo.html');
+
+			let isAdmin = cekHakAksesUserLogin(user.UserrID, 'ADMIN');
+			let isDoktr = cekHakAksesUserLogin(user.UserrID, 'DOKTR');
+
+			//setingan config js, ada RS dengan ketentuan Dokter tidak perlu buka page antrian
+			if (config.hide_page_antrian) {
+				if (isDoktr) {
+					if (!isAdmin && index == '') {
+						index = '1';
+					}
+				}
+			}
+
+			if (index != "") {
+				$('#title').text(title[index]);
+				$("#icon").attr('class', icon[index]);
+				$.ajax({
+					headers: ("Access-Control-Allow-Origin: *"),
+					url: config.base_url + "pages/" + link[index] + "?n=" + AppVersion,
+					// context: document.body,
+					success: function(response) {
+						$("#kt-content").html(response);
+					}
+				});
+			} else {
+				$('#title').text(title[0]);
+				$("#icon").attr('class', icon[0]);
+				$.ajax({
+					url: config.base_url + "pages/" + link[0] + "?n=" + AppVersion,
+					// context: document.body,
+					success: function(response) {
+						$("#kt-content").html(response);
+					}
+				});
+			}
+		}
+
+		$(".mn").click(async function() {
+			let _this = this;
+
+			switch (page) {
+				case "assesment":
+					checkUserInput(page).then((swal) => {
+						if (swal.value) {
+							SaveAssesment().then(e => {
+								toastr.success('Simpan Assesment Berhasil')
+								goToPage(_this)
+							}).catch(e => {
+								toastr.error('Simpan Assesment Gagal!')
+								$('a.mn').removeClass('act-side');
+								$('#mnuMedicalChart').addClass('act-side');
+							})
+						} else if (swal.dismiss === 'cancel') {
+							goToPage(_this);
+						} else if (swal.dismiss === 'close' || swal.dismiss === 'backdrop') {
+							$('a.mn').removeClass('act-side');
+							$('#mnuAssesment').addClass('act-side');
+							return false;
+						}
+					}).catch(e => {
+						goToPage(_this);
+					});
+					break;
+
+				case "medicalChart":
+					checkUserInput(page).then((swal) => {
+						if (swal.value) {
+							saveMedicalChart().then(e => {
+								goToPage(_this)
+							}).catch(e => {
+								$('a.mn').removeClass('act-side');
+								$('#mnuMedicalChart').addClass('act-side');
+							});
+						} else if (swal.dismiss === 'cancel') {
+							goToPage(_this);
+						} else if (swal.dismiss === 'close' || swal.dismiss === 'backdrop') {
+							$('a.mn').removeClass('act-side');
+							$('#mnuMedicalChart').addClass('act-side');
+						}
+					}).catch(e => {
+						goToPage(_this);
+					});
+					break;
+
+				default:
+					goToPage(_this);
+					break;
+			}
+		})
+
+		function checkUserInput(page) {
+			switch (page) {
+				case "assesment":
+					const isAssesInputDetected = detectInputAsses();
+					if (isAssesInputDetected) {
+						return Swal.fire({
+							title: 'Warning',
+							html: `<label class="text-primary font-14 f-600">Assesment</label><br><label class="text-danger">Belum Disimpan !</label>`,
+							icon: 'warning',
+							showCancelButton: true,
+							showCloseButton: true,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: 'Simpan',
+							cancelButtonText: 'Abaikan',
+						});
+					} else {
+						return new Promise((resolve, reject) => {
+							reject(false);
+						});
+					}
+					break;
+
+				case "medicalChart":
+					const isMedChartInputDetected = detectInputMC();
+					if (isMedChartInputDetected) {
+						return Swal.fire({
+							title: 'Warning',
+							html: `<label class="text-primary font-14 f-600">Medical Chart</label><br><label class="text-danger">Belum Disimpan !</label>`,
+							icon: 'warning',
+							showCancelButton: true,
+							showCloseButton: true,
+							confirmButtonColor: '#3085d6',
+							cancelButtonColor: '#d33',
+							confirmButtonText: 'Simpan',
+							cancelButtonText: 'Abaikan',
+						});
+					} else {
+						return new Promise((resolve, reject) => {
+							reject(false);
+						});
+					}
+					break;
+
+				default:
+					return new Promise((resolve, reject) => {
+						reject(false);
+					});
+					break;
+			}
+		}
+
+		$("#logout").click(function() {
+			logOut();
+		})
+
+		function goToPage(_this) {
+			let url = $(_this).attr('href');
+			if (url != "javascript:;") {
+				url = url.split('/');
+				url = url[2];
+
+				//nonaktifkan Menu Sub
+				let flag = $(_this).attr('menuflag');
+				if (flag == undefined) {
+					$(".kt-menu__item--submenu").removeClass('kt-menu__item--open');
+				}
+
+				loadingElemen(true, '#kt-content');
+
+				//ubah perpindahan page menjadi reload karena dengan method lama LoadData, javascript jadi redundan, pengaruh ke event click dll 
+				//await loadData(url)
+
+				//hanya reload, karena URL sudah di set oleh href event click
+				setTimeout(() => {
+					location.reload();
+				}, 50);
+			}
+		}
+
+		function logOut() {
+			resetCover();
+			window.localStorage.removeItem('user');
+			document.cookie = `myAuth20=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+			// localStorage.setItem('LastLayananHeader', JSON.stringify({
+			// 	Kode: '',
+			// 	Nama: ''
+			// }));
+			window.location.href = "./";
+		}
+
+
+		$("#alertSuccess,#alertDanger").hide();
+
+		function hideUserMenu() {
+			let isAdmin = cekHakAksesUserLogin(user.UserrID, 'ADMIN');
+			let isPrawt = cekHakAksesUserLogin(user.UserrID, 'PRAWT');
+			let isMedrc = cekHakAksesUserLogin(user.UserrID, 'MEDRC');
+			let isDoktr = cekHakAksesUserLogin(user.UserrID, 'DOKTR');
+
+			if (config.hide_page_antrian) {
+				if (!isAdmin && !isPrawt && !isMedrc && isDoktr) {
+					$("#linkAntrian").hide();
+				}
+			}
+
+			if (isAdmin) {
+				$("#hak_akses").show();
+				$("#linkSetupAssesTask").show();
+				$("#linkSetupGraphType").show();
+			}
+		}
+
+		function msg(msg) {
+			$("#msgAlertSuccess").text(msg);
+			$("#alertSuccess").fadeTo(3000, 200).fadeOut(800, function() {
+				//$(this).alert('close');
+			});
+			// $("#alertSuccess").show();
+		}
+
+		function msgDanger(msg) {
+			$("#msgAlertDanger").text(msg);
+			$("#alertDanger").fadeTo(5000, 600).fadeOut(800, function() {
+				//$(this).alert('close');
+			});
+			// $("#alertDanger").fadeTo(600);
+		}
+
+		function resetCover() {
+			pasienIDCurrent = "";
+			pasienID = "";
+			regIDCurrent = "";
+			TglMasukCurrent = "";
+			isPasienAktivasi = false;
+
+			$("[name='nmPasienHdr']").text("NAMA PASIEN");
+			$("[name='jkHdr']").attr("src", "");
+			$("[name='usiaHdr']").text("00 Tahun");
+			$("#cari").val("");
+			$("[name='noRGHdr']").text("RG00000000");
+			$("[name='tglPeriksaHdr']").text("01-01-3000");
+			$("[name='layananCoverHdr']").text("Layanan");
+			$("[name='dpjpHdr']").text("Dr. ");
+			$("[name='vitalSignHdr']").text("");
+			$("#tLine").val("");
+			$("[name='clearPinnedPasienHdr']").toggle("hide");
+			$("#tLine").prop("checked", false);
+			$("#learnAll").prop("checked", false);
+
+			sessionStorage.removeItem("pasienID");
+			sessionStorage.removeItem("regID");
+			sessionStorage.removeItem("antrianID");
+
+			//reset history search chart
+			window.localStorage.setItem('chartSearch', "");
+		}
+
+		function getListNotification() {
+			// var data = [];
+			// $('#notifCounter').html('');
+			// $('#notifCounterInfo').html('');
+			// $('#notifContent').html('');
+			// $.ajax({
+			// 	type: 'GET',
+			// 	url: config.base_api + 'Notif/ListData?userrID=' + user.UserrID,
+			// 	success: function (result) {
+			// 		data = result;
+			// 		setNotification(data);
+			// 	},
+			// 	error: function (e) {
+			// 		setNotification(data);
+			// 	}
+			// });
+		}
+
+		function setNotification(data) {
+			var content = ''
+			if (data.length != 0) {
+				data.forEach(item => {
+					var isRead = item.IsRead ? 'kt-notification__item--read' : '';
+					var _tglItem = reverseTgl(item.TglJam.substring(0, 10));
+					var _jam = item.TglJam.substring(11, item.TglJam.length);
+					var _dateNow = getTglNowDMY();
+
+					var _tgl = _tglItem == _dateNow ? 'Today' : _tglItem;
+
+
+					switch (item.NotifTypeID) {
+						case "N1":
+							content += `<div class="form-group-sm form-inline">
+						<a id="${item.NotifID}" notifreffid="${item.ReffID}" isread="${item.IsRead}" notiftype="${item.NotifTypeID}" 
+						class="col-10 kt-notification__item ${isRead} notifItem" style="cursor:pointer;">
+						<div class="kt-notification__item-icon">
+						<i class="fa fa-microscope kt-font-primary"></i>
+						</div>
+						<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title">
+						${item.NotifTypeName}
+						</div>
+						<div class="kt-notification__item-time">
+						${_tgl} ${_jam}
+						</div>
+						</div>
+						</a>
+						<a class="col-2 btn btn-clean btn-sm btn-icon-md" onClick="deleteNotif('${item.NotifID}')">
+						<i class="flaticon-delete"></i>
+						</a>
+						</div>`;
+							break;
+						case "N2":
+							content += `<div class="form-group-sm form-inline">
+						<a id="${item.NotifID}" notifreffid="${item.ReffID}" isread="${item.IsRead}" notiftype="${item.NotifTypeID}" 
+						class="col-10 kt-notification__item ${isRead} notifItem popup-file-notif" style="cursor:pointer;" data-mfp-src="${config.base_api_preview + item.ReffID}">
+						<div class="kt-notification__item-icon">
+						<i class="flaticon2-image-file kt-font-warning"></i>
+						</div>
+						<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title">
+						${item.NotifTypeName}
+						</div>
+						<div class="kt-notification__item-time">
+						${_tgl} ${_jam}
+						</div>
+						</div>
+						</a>
+						<a class="col-2 btn btn-clean btn-sm btn-icon-md" onClick="deleteNotif('${item.NotifID}')">
+						<i class="flaticon-delete"></i>
+						</a>
+						</div>`;
+							break;
+						case "N3":
+							content += `<div class="form-group-sm form-inline">
+						<a id="${item.NotifID}" notifreffid="${item.ReffID}" isread="${item.IsRead}" notiftype="${item.NotifTypeID}" 
+						class="col-10 kt-notification__item ${isRead} notifItem" style="cursor:pointer;">
+						<div class="kt-notification__item-icon">
+						<i class="fa fa-radiation-alt kt-font-success"></i>
+						</div>
+						<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title">
+						${item.NotifTypeName}
+						</div>
+						<div class="kt-notification__item-time">
+						${_tgl} ${_jam}
+						</div>
+						</div>
+						</a>
+						<a class="col-2 btn btn-clean btn-sm btn-icon-md" onClick="deleteNotif('${item.NotifID}')">
+						<i class="flaticon-delete"></i>
+						</a>
+						</div>`;
+							break;
+						case "N4":
+							content += `<div class="form-group-sm form-inline">
+						<a id="${item.NotifID}" notifreffid="${item.ReffID}" isread="${item.IsRead}" notiftype="${item.NotifTypeID}" 
+						class="col-10 kt-notification__item ${isRead} notifItem popup-file-notif" style="cursor:pointer;" data-mfp-src="${config.base_api_preview + item.ReffID}">
+						<div class="kt-notification__item-icon">
+						<i class="flaticon2-medical-records-1  kt-font-danger"></i>
+						</div>
+						<div class="kt-notification__item-details">
+						<div class="kt-notification__item-title">
+						${item.NotifTypeName}
+						</div>
+						<div class="kt-notification__item-time">
+						${_tgl} ${_jam}
+						</div>
+						</div>
+						</a>
+						<a class="col-2 btn btn-clean btn-sm btn-icon-md" onClick="deleteNotif('${item.NotifID}')">
+						<i class="flaticon-delete"></i>
+						</a>
+						</div>`;
+							break;
+					}
+				});
+				$('#pulseNotif').addClass('kt-pulse kt-pulse--light');
+			} else {
+				$('#pulseNotif').removeClass('kt-pulse kt-pulse--light');
+			}
+
+			var notiCount = data.filter(x => (x.IsRead == false));
+
+			if (notiCount == 0) {
+				$('#notifCounter').html('');
+				$('#pulseRing').removeClass('kt-pulse__ring');
+			} else {
+				$('#notifCounter').html(notiCount.length);
+				$('#pulseRing').addClass('kt-pulse__ring');
+			}
+
+			$('#notifCounterInfo').html(data.length + ' Messages<br>' + notiCount.length + ' Unread');
+			$('#notifContent').append(content);
+
+			$('.notifItem').click(function(e) {
+				var _id = $(this).attr('id');
+				var _isRead = $(this).attr('isread');
+				var _this = $(this);
+
+				if (_isRead == "false") {
+					$.ajax({
+						type: "POST",
+						url: config.base_api + 'Notif/Read?notifID=' + _id,
+						success: function(result) {
+							//Update view tanpa refresh
+							const notifOld = $('#notifCounter').html();
+							const notifNow = parseInt(notifOld) - 1
+							if (notifNow == 0) {
+								$('#notifCounter').html('');
+								$('#pulseRing').removeClass('kt-pulse__ring');
+							} else {
+								$('#notifCounter').html(notifNow);
+							}
+							_this.addClass('kt-notification__item--read');
+							_this.attr('isread', 'true');
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					});
+				}
+
+				var _reffID = $(this).attr('notifreffid');
+				var _notifTypeID = $(this).attr('notiftype');
+
+				switch (_notifTypeID) {
+					case "N1": //LAB
+						showHistoryOrder(_reffID, 'LB');
+						break;
+					case "N3": //RAD
+						showHistoryOrder(_reffID, 'RD');
+						break;
+				}
+			});
+
+			//untuk hasil Lab dan Rad 
+			if (data.length != 0) {
+				$('.popup-file-notif').magnificPopup({
+					type: 'iframe'
+				});
+			}
+		}
+
+		async function deleteNotif(id) {
+			await Swal.fire({
+				title: 'Delete',
+				text: "Delete Notification ?",
+				icon: 'warning',
+				showCloseButton: true,
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes',
+				cancelButtonText: 'No',
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						type: "DELETE",
+						url: config.base_api + 'Notif/Delete?notifID=' + id,
+						success: function(result) {
+							getListNotification();
+						},
+						error: function(e) {
+							console.log(e);
+						}
+					});
+				} else if (result.dismiss === 'cancel') {
+
+				}
+			});
+		}
+
+		async function showHistoryOrder(orderID, orderType) {
+			$('#modalHistory').find('.modal-dialog').removeClass('modal-lg');
+			$('#modalContentHistory').html('');
+			switch (orderType) {
+				case 'TD':
+					$('#modalTitleHistory').html('ORDER TINDAKAN');
+					break;
+				case 'LB':
+					$('#modalTitleHistory').html('ORDER LABORATORIUM');
+					break;
+				case 'RD':
+					$('#modalTitleHistory').html('ORDER RADIOLOGI');
+					break;
+			}
+			const order = await fetch(config.base_api + 'Chart/GetChartOrder?orderId=' + orderID, {
+					method: "get"
+				})
+				.then(res => res.json())
+				.then(res => {
+					return res;
+				})
+				.catch(err => {
+					return err;
+				});
+
+			const trsID = order.ImplementationID == null ? '' : "/ " + order.ImplementationID;
+
+			let content = '';
+			content = `<table class="table table-striped table-hover table-bordered" id="tblHistory">
+			<thead>       
+			<tr>                                            
+			<td colspan="2"><b>Order ID</b></td>    
+			<td colspan="2">${order.ChartOrderID} ${trsID}</td> 
+			</tr>                   
+			<tr>                                           
+			<td colspan="2"><b>Keterangan</b></td>    		 
+			<td colspan="2">${order.Description}</td>    		 
+			</tr>                                           	                              
+			</thead>
+			<thead>                         
+			<tr>                        
+			<th style="border-top-left-radius: 5px;"> No. </th>    
+			<th> Kode </th>      
+			<th> Nama </th>   
+			<th style="border-top-right-radius: 5px;"> Keterangan </th>     		     		
+			</tr>                       
+			</thead>                        
+			<tbody>`;
+
+			order.ListOrderItem.forEach(function(item, index) {
+				content += `<tr>                                                                            
+				<td>${index + 1} </td>                                                                
+				<td>${item.TariffID}</td>    
+				<td>${item.TariffName}</td>		 
+				<td>${item.Keterangan}</td>		 
+				</tr>`;
+			});
+
+			content += `</tbody></table>`;
+
+			$('#modalContentHistory').append(content);
+			$('#modalHistory').modal('show');
+		}
+
+		function reverseTgl(str) {
+			return str.split(/[^0-9]/).reverse().join('-');
+		}
+
+		function getTglNowDMY() {
+			const date = $('#serverDate').html().trim();
+			return reverseTgl(date);
+		}
+
+		function dateNowYMD() {
+			const date = $('#serverDate').html().trim();
+			return date;
+		}
+
+		function timeNow() {
+			const time = $('#serverTime').html().trim();
+			return time;
+		}
+
+		function timeNowShort() {
+			const time = $('#serverTime').html().trim();
+			return time.substr(0, 5);
+		}
+
+		function localDateNowYMD() {
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+			return yyyy + '-' + mm + '-' + dd;
+		}
+
+		function cekHakAksesLayanan(userid, layananid) {
+			let _listAccRight = user.ListAccesRight;
+			const _dataAcc = _listAccRight.filter(x => (x.AccessTypeID == 'ADMIN'));
+			if (_dataAcc.length != 0) {
+				return true; //ADMIN bisa semua LAYANAN 
+			}
+
+			let _listLyn = user.ListLayanan;
+			const _data = _listLyn.filter(x => (x.LayananID == layananid && x.UserrID == userid));
+			if (_data.length != 0) {
+				return true;
+			}
+			return false;
+		}
+
+		function cekHakAksesUserLogin(userid, accessTypeID) {
+			let _listAccRight = user.ListAccesRight;
+			const _dataAcc = _listAccRight.filter(x => (x.AccessTypeID == accessTypeID));
+			if (_dataAcc.length != 0) {
+				return true;
+			}
+			return false;
+		}
+
+		function cekHakAksesUser(userid, accessTypeID) {
+			let result = false;
+			const tkn = getCookie('myAuth20');
+			$.ajax({
+				type: 'GET',
+				async: false,
+				url: config.base_api + 'Userr/GetData?userrID=' + userid,
+				headers: {
+					"Authorization": "bearer " + tkn
+				},
+				success: function(res) {
+					if (res.ListAccesRight.length != 0) {
+						let _listAccRight = res.ListAccesRight;
+						const _dataAcc = _listAccRight.filter(x => (x.AccessTypeID == accessTypeID));
+						if (_dataAcc.length != 0) {
+							result = true;
+						}
+					}
+				},
+				error: function(e) {
+
+				}
+			});
+
+			return result;
+		}
+
+		function loadingElemen(show, elementID, _message = 'Processing...', _state = 'primary') {
+			if (show) {
+				KTApp.block(elementID, {
+					overlayColor: '#001521',
+					type: 'v2',
+					state: _state,
+					message: _message
+				});
+			} else {
+				setTimeout(function() {
+					KTApp.unblock(elementID);
+				}, 200);
+			}
+		}
+
+		function restrictAccess(show, elementID, _message = 'Akses tidak diperbolehkan') {
+			if (show) {
+				KTApp.block(elementID, {
+					overlayColor: '#ffffff',
+					type: 'v2',
+					state: 'danger',
+					opacity: 0.5,
+					size: 'lg',
+					message: _message
+				});
+			} else {
+				setTimeout(function() {
+					KTApp.unblock(elementID);
+				}, 200);
+			}
+		}
+
+		function htmlencode(str) {
+			return str.replace(/[&<>"']/g, function($0) {
+				return "&" + {
+					"&": "amp",
+					"<": "lt",
+					">": "gt",
+					'"': "quot",
+					"'": "#39"
+				} [$0] + ";";
+			});
+		}
+
+		function addScript(src) {
+			var s = document.createElement('script');
+			s.setAttribute('src', src + '?n=' + AppVersion);
+
+			// let isExist = false;
+			// $('script').each(function () {
+			// 	if (this.src === s.src) {
+			// 		//jangan di add script.. nanti event jadi double
+			// 		isExist = true;
+			// 	}
+
+			// });	
+
+			// if(isExist){
+			// 	document.getElementsByTagName('head')[0].appendChild(s);
+			// }
+			document.getElementsByTagName('body')[0].appendChild(s);
+		}
+
+		function scrollToId(containerId, targetId, higher = 0) {
+			var container = $(`#${containerId}`),
+				scrollTo = $(`#${targetId}`);
+			try {
+				container.animate({
+					scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop() - higher
+				}, 1000);
+			} catch (e) {
+				if (e.name == "TypeError") {
+					toastr.error("Content Not Found")
+				}
+			}
+		}
+
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+		}
+
+
+		function angkaToHuruf(s) {
+
+			var th = ['', 'Ribu', 'Juta', 'Milyar', 'Triliun'];
+			var dg = ['Nol', 'Satu', 'Dua', 'Tiga', 'Empat', 'Lima', 'Enam', 'Tujuh', 'Delapan', 'Sembilan'];
+			var tn = ['Sepuluh', 'Sebelas', 'Dua Belas', 'Tiga Belas', 'Empat Belas', 'Lima Belas', 'Enam Belas', 'Tujuh Belas', 'Delapan Belas', 'Sembilan Belas'];
+			var tw = ['Dua Puluh', 'Tiga Puluh', 'Empat Puluh', 'Lima Puluh', 'Enam Puluh', 'Tujuh Puluh', 'Delapan Puluh', 'Sembilan Puluh'];
+
+			s = s.toString();
+			s = s.replace(/[\, ]/g, '');
+			if (s != parseFloat(s)) return 'not a number';
+			var x = s.indexOf('.');
+			if (x == -1) x = s.length;
+			if (x > 15) return 'too big';
+			var n = s.split('');
+			var str = '';
+			var sk = 0;
+			for (var i = 0; i < x; i++) {
+				if ((x - i) % 3 == 2) {
+					if (n[i] == '1') {
+						str += tn[Number(n[i + 1])] + ' ';
+						i++;
+						sk = 1;
+					} else if (n[i] != 0) {
+						str += tw[n[i] - 2] + ' ';
+						sk = 1;
+					}
+				} else if (n[i] != 0) {
+					str += dg[n[i]] + ' ';
+					if ((x - i) % 3 == 0) str += 'Ratus ';
+					sk = 1;
+				}
+				if ((x - i) % 3 == 1) {
+					if (sk) str += th[(x - i - 1) / 3] + ' ';
+					sk = 0;
+				}
+			}
+
+			if (x != s.length) {
+				var y = s.length;
+				str += 'koma ';
+				for (var i = x + 1; i < y; i++) str += dg[n[i]] + ' ';
+			}
+			return str.replace(/\s+/g, ' ').replace("Satu Ratus", "Seratus").replace("Satu Ribu", "Seribu").replace("Satu Puluh", "Sepuluh");
+		}
+
+		$('#hideAlertSuccess').click(function() {
+			$('#alertSuccess').hide();
+		})
+		$('#hideAlertDanger').click(function() {
+			$('#alertDanger').hide();
+		})
+
+		$("[name='closeDetPsnHdr']").on('click', function() {
+			$('#DetPsn').collapse('hide');
+		});
+
+		function warningSaveInputGantiPasien(myCallBack) {
+			switch (page) {
+				case "assesment":
+					checkUserInput(page)
+						.then((swal) => {
+							if (swal.value) {
+								SaveAssesment()
+									.then((e) => {
+										toastr.success("Simpan Assesment Berhasil");
+										myCallBack();
+									})
+									.catch((e) => {
+										toastr.error("Simpan Assesment Gagal!");
+										$("a.mn").removeClass("act-side");
+										$("#mnuMedicalChart").addClass("act-side");
+									});
+							} else if (swal.dismiss === "cancel") {
+								myCallBack();
+							} else if (swal.dismiss === "close" || swal.dismiss === "backdrop") {
+								$("a.mn").removeClass("act-side");
+								$("#mnuAssesment").addClass("act-side");
+								return false;
+							}
+						})
+						.catch((e) => {
+							myCallBack();
+						});
+					break;
+
+				case "medicalChart":
+					checkUserInput(page)
+						.then((swal) => {
+							if (swal.value) {
+								saveMedicalChart()
+									.then((e) => {
+										myCallBack();
+									})
+									.catch((e) => {
+										$("a.mn").removeClass("act-side");
+										$("#mnuMedicalChart").addClass("act-side");
+									});
+							} else if (swal.dismiss === "cancel") {
+								myCallBack();
+							} else if (swal.dismiss === "close" || swal.dismiss === "backdrop") {
+								$("a.mn").removeClass("act-side");
+								$("#mnuMedicalChart").addClass("act-side");
+							}
+						})
+						.catch((e) => {
+							myCallBack();
+						});
+					break;
+
+				default:
+					myCallBack();
+					break;
+			}
+		}
+
+		function dynamicSort(property) {
+			var sortOrder = 1;
+			if (property[0] === "-") {
+				sortOrder = -1;
+				property = property.substr(1);
+			}
+			return function(a, b) {
+				/* next line works with strings and numbers, 
+				 * and you may want to customize it to your needs
+				 */
+				var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+				return result * sortOrder;
+			}
+		}
+
+		function blockApplication() {
+			const _message = `<div class="kt-login__body p-4 text-center">
+								<!-- <h6 class="mb-4 kt-font-info">Your activity was not detected in ${lockscreenTime} minute, re-login to continue !</h6>
+								<div class="kt-login__logo">
+									<img src="./assets/media/logos/logo.png" style="width: 80px; height: auto;">
+								</div>
+								-->
+								<div class="kt-login__signin" id="log">
+									<div class="kt-login__head mb-4">
+										<h3 class="kt-login__title">Log In</h3>
+									</div>
+									<div class="kt-login__form">
+										<div class="kt-form" action="">
+											<div class="form-group row">
+												<div class="col-2"></div>
+												<input class="form-control form-control-sm col-8" style="text-align: center; font-weight: 600;" type="text" placeholder="User ID" id="userIdle" disabled="disabled">
+												<div class="col-2"></div>
+											</div>
+											<div class="form-group row">
+												<div class="col-2"></div>
+												<input class="form-control form-control-sm form-control-last col-8" style="text-align: center;" type="password" placeholder="Password" id="passwordIdle">
+												<div class="col-2"></div>
+											</div>
+											<div class="kt-login__actions text-center">
+												<button onClick="reLogin(event)" class="btn btn-brand btn-sm btn-elevate" style="border-radius: 5px;">Log In</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>`;
+
+			$('#modalRelogin .modal-body').html(_message);
+
+			setTimeout(() => {
+				$('#userIdle').val(user.UserrID);
+				$('#passwordIdle').focus();
+			}, 500);
+		}
+	</script>
+
+	<!-- end::Global Config -->
+
+	<!--begin:: Global Mandatory Vendors -->
+
+	<script src="./assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/js-cookie/src/js.cookie.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
+	<script src="./assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
+	<script src="./assets/js/etc/autoSize.js"></script>
+
+	<!--end:: Global Optional Vendors -->
+
+	<!--begin::Global Theme Bundle(used by all pages) -->
+	<script src="./assets/js/demo12/scripts.bundle.js" type="text/javascript"></script>
+	<!--script src="/assets/js/calendar/plugins.bundle.js" type="text/javascript"></script-->
+	<!--end::Global Theme Bundle -->
+
+
+	<!--begin::Page Scripts(used by this page) -->
+	<!-- <script src="./assets/js/demo12/pages/dashboard.js" type="text/javascript"></script> -->
+	<script src="./assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+	<script type="text/javascript" src="./assets/jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="./assets/magnific/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="./assets/dropzone/dropzone.min.js"></script>
+	<script type="text/javascript" src="./assets/sweetalert/sweetalert2.all.min.js"></script>
+	<script src="./assets/vendors/general/block-ui/jquery.blockUI.js" type="text/javascript"></script>
+
+	<!-- <script src="./assets/multi-select/js/bootstrap-multiselect.js"></script> -->
+	<!--script src="/assets/js/calendar/list-view.js" type="text/javascript"></script-->
+	<script src="./assets/ajax/crypto-js.js" type="text/javascript"></script>
+
+	<!-- <script src="https://fullcalendar.io/releases/fullcalendar/3.9.0/fullcalendar.min.js" type="text/javascript">
+	</script>
+	<script src="https://fullcalendar.io/releases/fullcalendar-scheduler/1.9.4/scheduler.min.js" type="text/javascript"></script> -->
+	<script type="text/javascript" src="./assets/magnify/js/jquery.magnify.js"></script>
+	<script src="./assets/vendors/general/toastr/toastr.min.js" type="text/javascript"></script>
+	<script src="./assets/js/demo12/pages/components/utils/session-timeout.js"></script>
+	<script src="./assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js"></script>
+	<script src="./assets/js/AppClass/idleTimer.js"></script>
+	<script src="./assets/qrcode/qrcode.min.js"></script>
+	<script src="./assets/js/etc/universalLookUp.js"></script>
+	<script srt="./assets/js/etc/globalFunction.js"></script>
+	<!--end::Page Scripts -->
+	<script>
+		$(document).ready(function() {
+			function sembunyi() {
+				$('#tList').show();
+			}
+		})
+
+		addScript('./assets/js/etc/globalFunction.js')
+	</script>
+
+</body>
+
+<!-- end::Body -->
+
+</html>
