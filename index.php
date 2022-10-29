@@ -34,10 +34,10 @@
     .card-body {
 
         background-color: transparent;
-        /* display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         box-shadow: 0 35px 55px rgba(129, 124, 124, 0.8);
-        border-radius: 9px;
+        border-radius: 15px;
         backdrop-filter: blur(9px);
         /* padding: 10px; */
 
@@ -69,117 +69,126 @@
         </div>
     </header>
 
-    <div class="col-6 col-md-6">
+    <div class="col">
         <div class="card-body">
-            <div class="row g-2">
-                <div class="col-md">
-                    <div class="item">
+            <div class="row">
+                <!-- <div class="col"> -->
+
+                <!-- <div class="item">
                         <a href="http://192.168.10.7:277/survey/index.php" target="_blank">
                             <img src="fa/verif-doc.svg" />
                             <p> Verif-Doc </p>
                         </a>
-                    </div>
+                    </div> -->
 
-                    <div class="item">
-                        <!-- <a href="#" target="_blank"> -->
+                <!-- <div class="item">
+                        <a href="#" target="_blank">
                         <img src="fa/e-lib2.png" />
                         <p>E-library</p>
                         </a>
-                    </div>
-                    <div class="item">
-                        <a href="http://192.168.10.7:89/login.php" target="_blank">
-                            <img src="fa/sismadak.png" />
-                            <p>Sismadak</p>
+                    </div> -->
+                <div class="item">
+                    <a href="http://192.168.10.7:85" target="_blank">
+                        <img src="fa/sismadak.png" />
+                        <p>Sismadak 5.0.1</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.5:88/login.php" target="_blank">
+                        <img src="fa/sismadak.png" />
+                        <p>Sidokar 1.1</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.7:277/dashboard/index.php" target="_blank">
+                        <img src="fa/dashboard1.png" />
+                        <p>Dashboard</p>
+                    </a>
+                </div>
+                <!-- <div class="item" data-bs-toggle="tooltip" data-bs-html="true" title="Kamingsun">
+                        <a href="www.google.com" target="_blank">
+                        <img src="fa/eSlip.png" />
+                        <p>E-Slip</p>
                         </a>
-                    </div>
-                    <div class="item">
-                        <a href="http://192.168.10.7:277/dashboard/index.php" target="_blank">
-                            <img src="fa/dashboard1.png" />
-                            <p>Dashboard</p>
+                    </div> -->
+                <div class="item" data-bs-toggle="tooltip" data-bs-html="true" title="">
+                    <a href="http://192.168.10.7:277/ksd-emr/index.php" target="_blank">
+                        <img src="fa/form.png" />
+                        <p>Form Kendala EMR</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.88:8070/sgc/" target="_blank">
+                        <img src="fa/portakIT2.png" />
+                        <p>Groupper Controller</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.7:277/order-perbaikan/" target="_blank">
+                        <img src="fa/order-perbaikan.png" />
+                        <p>Order Perbaikan</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.7:277/RL/" target="_blank">
+                        <img src="fa/rl.png" />
+                        <p>Data RL</p>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://192.168.10.7:299/dokumen-rs/" target="_blank">
+                        <img src="fa/form.png" />
+                        <p>Dokumen RS</p>
+                    </a>
+                </div>
+                <!-- <div class="item">
+                        <a href="" target="_blank">
+                            <img src="fa/form.png" />
+                            <p>Timeline All Ins/unit</p>
                         </a>
-                    </div>
-                    <div class="col-md">
-                        <div class="item">
+                    </div> -->
+                <!-- <div class="col-md"> -->
+                <!-- <div class="item">
                             <a href="http://192.168.10.7:277/IT-portal/index.php" target="_blank">
                                 <img src="fa/inventory.png" />
                                 <p> Inventory RS </p>
                             </a>
-                        </div>
-                        <div class="item" data-bs-toggle="tooltip" data-bs-html="true" title="Kamingsun">
-                            <!-- <a href="www.google.com" target="_blank"> -->
-                            <img src="fa/eSlip.png" />
-                            <p>E-Slip</p>
-                            </a>
-                        </div>
-                        <!-- <div class="item">
+                        </div> -->
+                <!-- <div class="item">
                             <a href="www.google.com" target="_blank">
                                 <img src="fa/website.png" />
                                 <p>Website RS</p>
                             </a>
                         </div> -->
-                        <!-- </div> -->
-                        <!-- </div> -->
+                <!-- </div> -->
+                <!-- </div> -->
 
-                        <div class="item" data-bs-toggle="tooltip" data-bs-html="true" title="">
-                            <a href="http://192.168.10.7:277/ksd-emr/index.php" target="_blank">
-                                <img src="fa/form.png" />
-                                <p>Form Kendala EMR</p>
-                            </a>
-                        </div>
-                        <!-- <div class="item">
+                <!-- <div class="item">
                         <a href="www.google.com" target="_blank">
                             <img src="fa/document.png" />
                             <p>Soon</p>
                         </a>
                     </div> -->
 
-                        <div class="item">
-                            <a href="http://192.168.10.7:277/IT-portal/index.php" target="_blank">
-                                <img src="fa/portakIT2.png" />
-                                <p>Portal-IT</p>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="http://192.168.10.7:277/order-perbaikan/" target="_blank">
-                                <img src="fa/order-perbaikan.png" />
-                                <p>Order Perbaikan</p>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="www.google.com" target="_blank">
-                                <img src="fa/order-barang3.png" />
-                                <p>Order Barang</p>
-                            </a>
-                        </div>
-                        <div class="item">
+                <div class="item">
+                    <!-- <a href="www.google.com" target="_blank"> -->
+                    <img src="fa/order-barang3.png" />
+                    <p>Order Barang</p>
+                    </a>
+                </div>
+                <!-- <div class="item">
                             <a href="www.google.com" target="_blank">
                                 <img src="fa/cuti.png" />
                                 <p>Pengajuan Cuti</p>
                             </a>
-                        </div>
-                        <div class="item">
-                            <a href="http://192.168.10.7:277/RL/" target="_blank">
-                                <img src="fa/rl.png" />
-                                <p>Data RL</p>
-                            </a>
-                        </div>
-                        <div class="item">
-                            <a href="" target="_blank">
-                                <img src="fa/form.png" />
-                                <p>Dokumen RS</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                        </div> -->
+                <!-- </div> -->
             </div>
         </div>
+    </div>
 
+    <script src="js/bootstrap.bundle.min.js"></script>
 
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
